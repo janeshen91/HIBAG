@@ -243,7 +243,8 @@ hlaParallelAttrBagging <- function(cl, hla, snp, auto.save="",
         .DynamicClusterCall(cl,
             fun = function(job, hla, snp, mtry, prune, rm.na)
             {
-                eval(parse(text="library(HIBAG)"))
+				LOC="/home/js91/R"
+                eval(parse(text="library(HIBAG,lib.loc=LOC)"))
                 model <- hlaAttrBagging(hla=hla, snp=snp, nclassifier=1,
                     mtry=mtry, prune=prune, rm.na=rm.na,
                     verbose=FALSE, verbose.detail=FALSE)
